@@ -2,7 +2,7 @@ CuteCalendar
 ============
 
 CuteCalendar is a Rails plugin to help you build calendars using topfunky's
-calendar_helper and defunkt's facebox. 
+calendar\_helper and defunkt's facebox. 
 You fill in with some events and we'll do all the dirty work of making it cute.
 
 Attribution
