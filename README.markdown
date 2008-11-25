@@ -10,7 +10,7 @@ Attribution
 
 This plugin is based on the works of several people:
 
-calendar_helper
+calendar\_helper
 ---------------
 * Jeremy Voorhis
 * Geoffrey Grosenbach 
