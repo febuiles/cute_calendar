@@ -27,5 +27,5 @@ Example
 
 Example goes here.
 
-Copyright (c) 2006-2008 Jeremy Voorhis, Geoffrey Grosenbach and Chris Wanstrath
+Copyright (c) 2006-2008 Jeremy Voorhis, Geoffrey Grosenbach and Chris Wanstrath     
 Copyright (c) 2008 Federico Builes, released under the MIT license
