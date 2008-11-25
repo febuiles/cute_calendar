@@ -8,7 +8,7 @@ You fill in with some events and we'll do all the dirty work of making it cute.
 Attribution
 ===========
 
-This plugin is based on the works of several persons:
+This plugin is based on the works of several people:
 
 calendar_helper
 ---------------
