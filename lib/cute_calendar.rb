@@ -1,1 +1,3 @@
-# CuteCalendar
+module CuteCalendar
+  
+end

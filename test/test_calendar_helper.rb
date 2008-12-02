@@ -13,7 +13,7 @@ class CalendarHelperTest < Test::Unit::TestCase
 
   # include Inflector
   # include ActionController::Assertions::SelectorAssertions
-  include CuteCalendar::CalendarHelper
+  include CalendarHelper
 
 
   def test_with_output
