@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'test/unit'
 require 'fileutils'
-require File.expand_path(File.dirname(__FILE__) + "/../lib/calendar_helper")
+require File.expand_path(File.dirname(__FILE__) + "/../lib/cute_calendar/calendar_helper")
 
 require 'flexmock/test_unit'
 
