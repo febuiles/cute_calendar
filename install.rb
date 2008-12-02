@@ -1,9 +1,10 @@
 require 'fileutils'
+
 css_path = File.join(RAILS_ROOT, "public", "stylesheets", "calendar")
 js_path  = File.join(RAILS_ROOT, "public", "javascripts", "calendar")
 img_path = File.join(RAILS_ROOT, "public", "images", "calendar")
 
- assets_path = File.join(File.dirname(__FILE__), "lib", "assets")
+assets_path = File.join(File.dirname(__FILE__), "lib", "assets")
 
 FileUtils.mkdir_p css_path
 FileUtils.mkdir_p img_path

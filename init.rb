@@ -1,1 +1,1 @@
-ActionView::Base.send :include, CuteCalendar::CalendarHelper
+ActionView::Base.send :include, CalendarHelper
