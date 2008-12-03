@@ -13,6 +13,7 @@ FileUtils.mkdir_p img_path
 FileUtils.mkdir_p js_path
 FileUtils.mkdir_p partials_path
 
+FileUtils.cp(File.join(assets_path, "javascripts", "jquery.js"), js_path)
 FileUtils.cp(File.join(assets_path, "javascripts", "facebox.js"), js_path)
 
 FileUtils.cp(File.join(assets_path, "partials", "_calendar.html.erb"), partials_path)
