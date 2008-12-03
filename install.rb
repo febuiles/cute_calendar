@@ -23,4 +23,4 @@ end
 
 # create a new Event model with its migration
 # TODO: This should use a generator or something
-`cd #{RAILS_ROOT} && ruby script/generate model -s --skip-fixture Event title:string description:text date:datetime`
+`cd #{RAILS_ROOT} && ruby script/generate model -s --skip-fixture Event title:string description:text date:date`
