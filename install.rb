@@ -4,14 +4,18 @@ require 'fileutils'
 css_path = File.join(RAILS_ROOT, "public", "stylesheets", "calendar")
 js_path  = File.join(RAILS_ROOT, "public", "javascripts", "calendar")
 img_path = File.join(RAILS_ROOT, "public", "images", "calendar")
+partials_path = File.join(RAILS_ROOT, "app", "views", "shared")
 
 assets_path = File.join(File.dirname(__FILE__), "lib", "assets")
 
 FileUtils.mkdir_p css_path
 FileUtils.mkdir_p img_path
 FileUtils.mkdir_p js_path
+FileUtils.mkdir_p partials_path
 
 FileUtils.cp(File.join(assets_path, "javascripts", "facebox.js"), js_path)
+
+FileUtils.cp(File.join(assets_path, "partials", "_calendar.html.erb"), partials_path)
 
 %w(red.css blue.css grey.css facebox.css).each do |stylesheet|
   FileUtils.cp(File.join(assets_path, "stylesheets", stylesheet), css_path)
