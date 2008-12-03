@@ -1,5 +1,6 @@
 require 'fileutils'
 
+# copy assets
 css_path = File.join(RAILS_ROOT, "public", "stylesheets", "calendar")
 js_path  = File.join(RAILS_ROOT, "public", "javascripts", "calendar")
 img_path = File.join(RAILS_ROOT, "public", "images", "calendar")
@@ -19,3 +20,7 @@ end
 Dir[assets_path + "/images/*"].each do |image|
   FileUtils.cp(image, img_path)
 end
+
+# create a new Event model with its migration
+# TODO: This should use a generator or something
+`cd #{RAILS_ROOT} && ruby script/generate model Event title:string description:text date:datetime`
