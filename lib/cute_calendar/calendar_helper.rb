@@ -127,7 +127,7 @@ module CalendarHelper
     end unless first.wday == first_weekday
     first.upto(last) do |cur|
       if special_day?(cur)
-        cell_text = %(link_to cur.mday, event_path(Event.find_by_Date(cur)))
+        cell_text = link_to(cur.mday, event_path(Event.find_by_date(cur)),:rel => "facebox")
         cell_attras = { :class => 'SpecialDay'}
       end
 #      cell_text, cell_attrs = block.call(cur)
