@@ -1,4 +1,6 @@
-This generator will create an Event model with the associated database migration. 
+
+This generator will create an Event model with the associated migration. 
+
 After running the generator please make sure to migrate your database:
 
     rake db:migrate
