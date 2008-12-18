@@ -1,7 +1,8 @@
 class Event < ActiveRecord::Base
   # checks if an event exists on a given date
   def self.special_date?(date)
-    self.all.select{ |ev| ev.date == date}.size > 0
+    events ||= self.all
+    events.select{ |ev| ev.date == date}.size > 0
   end
 
   def year

@@ -126,10 +126,10 @@ module CalendarHelper
     end unless first.wday == first_weekday
     first.upto(last) do |cur|
       if Event.special_date?(cur)
-        cell_text = link_to(cur.mday, event_path(Event.find_by_date(cur)),:rel => "facebox")
+        cell_text = link_to(cur.mday, _event_path(Event.find_by_date(cur)),:rel => "facebox")
         cell_attrs = { :class => 'SpecialDay'}
       end
-      cell_text, cell_attrs = block.call(cur)
+#      cell_text, cell_attrs = block.call(cur)
       cell_text  ||= cur.mday
       cell_attrs ||= {:class => options[:day_class]}
       cell_attrs[:class] += " weekendDay" if [0, 6].include?(cur.wday) 
@@ -179,5 +179,9 @@ module CalendarHelper
   
   def weekend?(date)
     [0, 6].include?(date.wday)
+  end
+
+  def _event_path(id)
+    "/events/#{id}"
   end
 end
