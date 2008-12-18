@@ -28,4 +28,4 @@ Dir[assets_path + "/images/*"].each do |image|
 end
 
 # copy the generator
-FileUtils.cp(File.join(templates_path, "events_generator.rb"), generators_path)
+FileUtils.cp(File.join(templates_path, "events", "events_generator.rb"), generators_path)
