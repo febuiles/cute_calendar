@@ -64,7 +64,6 @@ module CalendarHelper
   # For consistency with the themes provided in the calendar_styles generator, use "specialDay" as the CSS class for marked days.
   # 
   def calendar(options = {}, &block)
-    find_events
     raise(ArgumentError, "No year given")  unless options.has_key?(:year)
     raise(ArgumentError, "No month given") unless options.has_key?(:month)
 
@@ -126,11 +125,11 @@ module CalendarHelper
       end
     end unless first.wday == first_weekday
     first.upto(last) do |cur|
-      if special_day?(cur)
+      if Event.special_date?(cur)
         cell_text = link_to(cur.mday, event_path(Event.find_by_date(cur)),:rel => "facebox")
-        cell_attras = { :class => 'SpecialDay'}
+        cell_attrs = { :class => 'SpecialDay'}
       end
-#      cell_text, cell_attrs = block.call(cur)
+      cell_text, cell_attrs = block.call(cur)
       cell_text  ||= cur.mday
       cell_attrs ||= {:class => options[:day_class]}
       cell_attrs[:class] += " weekendDay" if [0, 6].include?(cur.wday) 
@@ -180,13 +179,5 @@ module CalendarHelper
   
   def weekend?(date)
     [0, 6].include?(date.wday)
-  end
-  
-  def find_events
-    @calendar_events = Event.find(:all, :select => "id, date").collect{ |e| e.date}
-  end
-  
-  def special_day?(date)
-    @calendar_events.include?(date)
   end
 end
