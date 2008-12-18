@@ -10,10 +10,44 @@ Contributors
 
 This plugin is based on the work of several awesome people, please read the CONTRIBUTORS file.
 
+Install
+=======
+
+Download the plugin
+         
+    $ ./script/plugin install git://github.com/febuiles/cute_calendar.git
+
+Run the Events generator
+
+    $ ./script/generate events
+
+With this version you'll need to create a controller and some views to create
+your events
+
+    $ ./script/generate scaffold Event title:string description:text date:date
+
 Example
 =======
 
-Example goes here.
+Insert the calendar in your view:
+
+    <%= calendar :year => 2008, :month => 12 %>
+
+Known Issues
+============
+
+If you already have an <pre>Events</pre> model you'll run into problems unless the model
+contains the following fields:
+
+* title:string
+* description:string/text
+* date:date
+
+If you have these then you can skip the generator in the installation
+ and everything should work fine.
+
+Copyright
+=========
 
 Copyright (c) 2006-2008 Jeremy Voorhis, Geoffrey Grosenbach and Chris Wanstrath     
 Copyright (c) 2008 Federico Builes, released under the MIT license
