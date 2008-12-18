@@ -187,7 +187,6 @@ module CalendarHelper
   end
   
   def special_day?(date)
-    # TODO: This query shouldn't be here, move it to the model.
     @calendar_events.include?(date)
   end
 end
