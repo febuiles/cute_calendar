@@ -21,6 +21,10 @@ Run the Events generator
 
     $ ./script/generate events
 
+Migrate your database:
+
+    $ rake db:migrate
+
 With this version you'll need to create a controller and some views to
 populate your Events table:
 
@@ -36,7 +40,7 @@ Insert the calendar in your view:
 If you want to use any of the custom stylesheets you can pass it as an
 option:
 
-    <%= calendar :year => 2008, :month => 12, :style => "gray" %>
+    <%= calendar :year => 2008, :month => 12, :style => "grey" %>
 
 These stylesheets can be found in public/stylesheets/calendar
 
