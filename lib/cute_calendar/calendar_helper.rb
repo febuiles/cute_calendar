@@ -100,6 +100,7 @@ module CalendarHelper
     style = "calendar/#{options[:style]}.css"
     cal = javascript_include_tag("calendar/jquery")
     cal << javascript_include_tag("calendar/facebox")
+    # TODO: inserting these in here generates invalid XHTML, fix.
     cal << stylesheet_link_tag("calendar/facebox")
     cal << stylesheet_link_tag(style) if options[:style]
 
