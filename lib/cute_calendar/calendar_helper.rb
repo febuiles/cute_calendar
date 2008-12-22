@@ -66,7 +66,7 @@ module CalendarHelper
   def calendar(options = {}, &block)
     raise(ArgumentError, "No year given")  unless options.has_key?(:year)
     raise(ArgumentError, "No month given") unless options.has_key?(:month)
-
+    
     block                        ||= Proc.new {|d| nil}
 
     defaults = {
@@ -82,6 +82,7 @@ module CalendarHelper
       :previous_month_text => nil,
       :next_month_text => nil
     }
+    
     options = defaults.merge options
 
     first = Date.civil(options[:year], options[:month], 1)
@@ -95,8 +96,14 @@ module CalendarHelper
       day_names.push(day_names.shift)
     end
 
-    # TODO Use some kind of builder instead of straight HTML
-    cal = %(<table class="#{options[:table_class]}" border="0" cellspacing="0" cellpadding="0">)
+    # include necessary javascript/css
+    style = "calendar/#{options[:style]}.css"
+    cal = javascript_include_tag("calendar/jquery")
+    cal << javascript_include_tag("calendar/facebox")
+    cal << stylesheet_link_tag(style) if options[:style]
+    cal << attach_jquery
+
+    cal << %(<table class="#{options[:table_class]}" border="0" cellspacing="0" cellpadding="0">)
     cal << %(<thead><tr>)
     if options[:previous_month_text] or options[:next_month_text]
       cal << %(<th colspan="2">#{options[:previous_month_text]}</th>)
@@ -124,7 +131,7 @@ module CalendarHelper
         cal << %(">#{d.day}</td>)
       end
     end unless first.wday == first_weekday
-    events = Event.find_all_dates_by_month(options[:month])
+    events = find_events(options[:month])
     first.upto(last) do |cur|
       if events.include?(cur)
         cell_text = link_to(cur.mday, _event_path(Event.find_by_date(cur)),:rel => "facebox")
@@ -182,7 +189,15 @@ module CalendarHelper
     [0, 6].include?(date.wday)
   end
 
-  def _event_path(id)
-    "/events/#{id}"
+  def _event_path(event)
+    "/events/#{event.id}"
+  end
+
+  def attach_jquery
+    "<script type='text/javascript'>jQuery(document).ready(function($){$('a[rel*=facebox]').facebox()})</script>"
+  end
+
+  def find_events(month)
+    Event.find_all_dates_by_month(month)
   end
 end
