@@ -124,8 +124,9 @@ module CalendarHelper
         cal << %(">#{d.day}</td>)
       end
     end unless first.wday == first_weekday
+    events = Event.find_all_dates_by_month(options[:month])
     first.upto(last) do |cur|
-      if Event.special_date?(cur)
+      if events.include?(cur)
         cell_text = link_to(cur.mday, _event_path(Event.find_by_date(cur)),:rel => "facebox")
         cell_attrs = { :class => 'SpecialDay'}
       end
