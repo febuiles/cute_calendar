@@ -21,8 +21,8 @@ Run the Events generator
 
     $ ./script/generate events
 
-With this version you'll need to create a controller and some views to create
-your events
+With this version you'll need to create a controller and some views to
+populate your Events table:
 
     $ ./script/generate scaffold Event title:string description:text date:date
 
@@ -32,6 +32,13 @@ Example
 Insert the calendar in your view:
 
     <%= calendar :year => 2008, :month => 12 %>
+
+If you want to use any of the custom stylesheets you can pass it as an
+option:
+
+    <%= calendar :year => 2008, :month => 12, :style => "gray" %>
+
+These stylesheets can be found in public/stylesheets/calendar
 
 Known Issues
 ------------
