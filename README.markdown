@@ -60,7 +60,6 @@ If you have these then you can skip the generator in the installation
 Todo
 ----
 
-* Uninstall cleanly.
 * Do something to avoid inserting stylesheets in the middle of the page (calendar_helper.rb:103)
 * Add a generator for a simple event creation interface.
 
